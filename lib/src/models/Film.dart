@@ -36,6 +36,7 @@ class Film {
   String producer;
   String releaseDate;
   String rtScore;
+  String uid;
 
   factory Film.fromJson(Map<String, dynamic> json) => Film(
         id: json["id"],
@@ -56,4 +57,22 @@ class Film {
         "release_date": releaseDate,
         "rt_score": rtScore,
       };
+
+  String getPoster() {
+    final filmName = title
+        .toLowerCase()
+        .replaceAll(RegExp(r'[^\w\s]+'), '')
+        .split(' ')
+        .join('_');
+    return '${filmName}_poster.jpg';
+  }
+
+  String getBanner() {
+    final filmName = title
+        .toLowerCase()
+        .replaceAll(RegExp(r'[^\w\s]+'), '')
+        .split(' ')
+        .join('_');
+    return '$filmName.jpg';
+  }
 }
