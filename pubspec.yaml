@@ -26,6 +26,7 @@ dependencies:
   lottie: ^0.6.0
   http: ^0.12.2
   shared_preferences: ^0.5.10
+  rxdart: ^0.24.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
