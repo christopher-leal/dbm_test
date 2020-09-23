@@ -178,7 +178,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Text(
                     'Ascendente',
-                    style: TextStyle(fontSize: 15.0),
+                    style: TextStyle(fontSize: 12.0),
                   ),
                   SizedBox(
                     width: 10.0,
@@ -190,7 +190,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Text(
                     'Descendente',
-                    style: TextStyle(fontSize: 15.0),
+                    style: TextStyle(fontSize: 12.0),
                   ),
                 ],
               ),
