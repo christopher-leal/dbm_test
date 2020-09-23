@@ -9,10 +9,11 @@ class FilmsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final filmsBloc = Provider.filmsBloc(context);
-    filmsBloc.getAllFilms();
+    final formsBloc = Provider.formsBloc(context);
+    filmsBloc.getAllFilms(sort: formsBloc.order);
     return Scaffold(
         appBar: AppBar(
-          title: Text('Ghiblins films'),
+          title: Text('Peliculas de Ghiblin'),
         ),
         body: StreamBuilder(
           stream: filmsBloc.filmsStream,

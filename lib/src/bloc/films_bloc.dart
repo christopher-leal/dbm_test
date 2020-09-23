@@ -1,14 +1,15 @@
 import 'dart:async';
 
 import 'package:dbm_test/src/providers/films_provider.dart';
+import 'package:rxdart/subjects.dart';
 
 class FilmsBloc {
-  final _filmsController = StreamController<List<Film>>.broadcast();
+  final _filmsController = BehaviorSubject<List<Film>>();
   final _filmsProvider = FilmsProvider();
   get filmsStream => _filmsController.stream;
 
-  getAllFilms() async {
-    _filmsController.sink.add(await _filmsProvider.getAllFilms());
+  Future<void> getAllFilms({bool sort}) async {
+    _filmsController.sink.add(await _filmsProvider.getAllFilms(sort));
   }
 
   dispose() {
