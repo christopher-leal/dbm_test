@@ -12,6 +12,20 @@ class FilmsBloc {
     _filmsController.sink.add(await _filmsProvider.getAllFilms(sort));
   }
 
+  getFilmByIds(List<String> ids) async {
+    List<Film> films = List<Film>();
+    // ids.forEach((id) async {
+    //   final film =
+    //   films.add(film);
+    //   print(films.length);
+    // });
+    for (var id in ids) {
+      films.add(await _filmsProvider.getFilmById(id));
+    }
+    _filmsController.sink.add(films);
+    // return await _filmsProvider.getFilmById(id);
+  }
+
   dispose() {
     _filmsController?.close();
   }

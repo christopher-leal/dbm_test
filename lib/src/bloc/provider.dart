@@ -1,10 +1,13 @@
 import 'package:dbm_test/src/bloc/films_bloc.dart';
+import 'package:dbm_test/src/bloc/forms_bloc.dart';
 import 'package:dbm_test/src/bloc/people_bloc.dart';
 import 'package:flutter/material.dart';
 
 class Provider extends InheritedWidget {
   final _filmsBloc = FilmsBloc();
   final _peopleBloc = PeopleBloc();
+  final _formsBloc = FormsBloc();
+
   static Provider _currentInstance;
 
   factory Provider({Key key, Widget child}) {
@@ -27,5 +30,9 @@ class Provider extends InheritedWidget {
 
   static PeopleBloc peopleBloc(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<Provider>()._peopleBloc;
+  }
+
+  static FormsBloc formsBloc(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<Provider>()._formsBloc;
   }
 }

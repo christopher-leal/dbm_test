@@ -33,7 +33,7 @@ class Person {
   String age;
   String eyeColor;
   String hairColor;
-  List<dynamic> films;
+  List<String> films;
   String species;
   String url;
 
@@ -44,7 +44,7 @@ class Person {
         age: json["age"],
         eyeColor: json["eye_color"],
         hairColor: json["hair_color"],
-        films: List<dynamic>.from(json["films"].map((x) => x)),
+        films: List<String>.from(json["films"].map((x) => x)),
         species: json["species"],
         url: json["url"],
       );
@@ -56,8 +56,18 @@ class Person {
         "age": age,
         "eye_color": eyeColor,
         "hair_color": hairColor,
-        "films": List<dynamic>.from(films.map((x) => x)),
+        "films": List<String>.from(films.map((x) => x)),
         "species": species,
         "url": url,
       };
+
+  List<String> getFilmsIds() {
+    return films.map((String film) {
+      final splited = film.split('/');
+      return splited[splited.length - 1];
+    }).toList();
+  }
+
+  get getGender =>
+      gender == "Male" ? "Hombre" : gender == "Female" ? 'Mujer' : gender;
 }
